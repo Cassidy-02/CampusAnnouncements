@@ -1,0 +1,31 @@
+﻿@model List<CampusAnnouncements.Models.Announcement>
+
+@{
+    ViewData["Title"] = "Announcements";
+}
+
+<h1>Campus Announcements</h1>
+
+<p>
+    <a href="@Url.Action("Create", "Announcement")">Create New Announcement</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var announcement in Model)
+        {
+            <tr>
+                <td>@announcement.Title</td>
+                <td>@announcement.Content</td>
+                <td>@announcement.Date.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
